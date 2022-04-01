@@ -1,5 +1,6 @@
 import typing
 from django.shortcuts import render
+from dotmap import DotMap
 from home.context import hydrate, home_context
 
 DOTMAP = typing.TypeVar('DotMap', bound=typing.OrderedDict)
@@ -11,5 +12,5 @@ DOTMAP = typing.TypeVar('DotMap', bound=typing.OrderedDict)
 
 
 @hydrate(home_context)
-def home(request, context: dict = {}):
+def home(request, context: DOTMAP = DotMap({})):
     return render(request, "home/home.html", context)

@@ -15,6 +15,12 @@ author = DotMap({
     "birth_month": 3,
     "birth_day": 14,
     "phone_number": "(+33) 06.43.51.58.30",
+    "github": {
+        "url": "https://github.com/valentincolin/",
+    },
+    "linkedin": {
+        "url": "https://www.linkedin.com/in/valentin-colin-522193152",
+    },
 })
 
 
@@ -53,8 +59,8 @@ def hydrate(*context_getters, debug=False):
             for context_getter in context_getters:
                 context_hydrated.update(context_getter(request))
             context.update(context_hydrated)
-            if DEBUG: 
-                print(f"[DEBUG]:")
+            if DEBUG:
+                print(f"[DEBUG] Context:")
                 print(context)
             return view(request, *args, context=context, **kwargs)
 
