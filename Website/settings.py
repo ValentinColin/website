@@ -28,7 +28,10 @@ SECRET_KEY = 'django-insecure-wmq+3ivz0d1z)hj_adicr@0cg#qv80e%(xvelnbw%96c$kqyj6
 DEBUG = True
 # DEBUG = os.environ.get("WEBSITE_DEBUG") == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    'www.valentin-colin.fr',
+]
 
 
 # Application definition
