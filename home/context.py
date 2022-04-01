@@ -23,6 +23,10 @@ author = DotMap({
     },
 })
 
+meta = DotMap({
+    "description": "",
+})
+
 
 
 def get_age(year: int, month: int, day: int) -> int:
@@ -43,6 +47,7 @@ def home_context(request) -> DOTMAP:
     set_author_computed_informations(author)
     context = DotMap({
         "author": author,
+        "meta": meta,
     })
     return context
 
