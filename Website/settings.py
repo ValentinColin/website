@@ -22,15 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-wmq+3ivz0d1z)hj_adicr@0cg#qv80e%(xvelnbw%96c$kqyj6'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.environ.get("WEBSITE_DEBUG") == "True"
+DEBUG = os.environ.get("PRODUCTION") != "True"
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    'www.valentin-colin.fr',
+    'valentin-colin.fr',
 ]
 
 

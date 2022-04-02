@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  website:
+    image: valentincolin/website
+    container_name: Website
+    restart: unless-stopped
+    environment:
+      PRODUCTION: "True"
+    # build une image depuis un <docker-compose build website> au lieu de <docker build . -t valentincolin/website>
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    networks:
+      - website
+    labels:
+      caddy: valentin-colin.fr
+      caddy.reverse_proxy: "{{upstreams 80}}"
+
+  caddy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - website
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - caddy_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "localhost:80"]
+
+networks:
+  website:
+
+volumes:
+  caddy_data:
