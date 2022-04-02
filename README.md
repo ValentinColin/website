@@ -1,5 +1,3 @@
-[![](https://tokei.rs/b1/github/ValentinColin/Website)](https://github.com/ValentinColin/Website)
-
 # Website
 
 [http://valentin-colin.fr/](http://valentin-colin.fr/)
