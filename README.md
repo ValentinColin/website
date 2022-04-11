@@ -1,6 +1,6 @@
 # Website
 
-[http://valentin-colin.fr/](http://valentin-colin.fr/)
+[https://valentin-colin.fr/](https://valentin-colin.fr/)
 
 
 ## Install
@@ -11,7 +11,7 @@
 git clone https://github.com/ValentinColin/Website
 cd Website
 pip install -r requirements.txt
-./manage.py runserver
+./entrypoint.sh
 ```
 
 ## Notes
