@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  website:
+    image: valentincolin/website
+    container_name: Website
+    restart: unless-stopped
+    environment:
+      PRODUCTION: "True"
+    # build une image depuis un <docker-compose build website> (le website de la ligne 4)
+    #                au lieu de <docker build . -t valentincolin/website>
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    networks:
+      - website
+    labels:
+      caddy: valentin-colin.fr
+      caddy.reverse_proxy: "{{upstreams 80}}"
+
+networks:
+  caddy:

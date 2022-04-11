@@ -6,7 +6,7 @@ services:
     container_name: Website
     restart: unless-stopped
     environment:
-      PRODUCTION: "True"
+      PRODUCTION: "False"
     # build une image depuis un <docker-compose build website> au lieu de <docker build . -t valentincolin/website>
     build:
       context: ./
