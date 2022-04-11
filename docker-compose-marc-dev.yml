@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  website:
+    image: valentincolin/website
+    container_name: valentincolin_website
+    restart: unless-stopped
+    environment:
+      PRODUCTION: "False"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    networks:
+      - caddy
+    labels:
+      caddy: valentin-colin.fr
+      caddy.reverse_proxy: "{{upstreams 80}}"
+
+networks:
+  caddy:
