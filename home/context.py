@@ -66,7 +66,7 @@ def hydrate(*context_getters, debug=False):
             context.update(context_hydrated)
             if DEBUG:
                 print(f"[DEBUG] Context:")
-                print(context)
+                print("\t" + context)
             return view(request, *args, context=context, **kwargs)
 
         return view_decorated
