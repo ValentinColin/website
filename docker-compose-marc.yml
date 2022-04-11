@@ -7,8 +7,6 @@ services:
     restart: unless-stopped
     environment:
       PRODUCTION: "True"
-    # build une image depuis un <docker-compose build website> (le website de la ligne 4)
-    #                au lieu de <docker build . -t valentincolin/website>
     build:
       context: ./
       dockerfile: Dockerfile
