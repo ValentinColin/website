@@ -15,7 +15,7 @@ services:
     ports:
       - "8000:80"
     networks:
-      - website
+      - caddy
     labels:
       caddy: valentin-colin.fr
       caddy.reverse_proxy: "{{upstreams 80}}"
