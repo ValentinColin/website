@@ -4,8 +4,7 @@
 
 ### MAKE ###
 # Default target
-# .DEFAULT_GOAL := up
-.DEFAULT_GOAL := up_marc
+.DEFAULT_GOAL := help
 
 ### FILES ###
 # Docker
