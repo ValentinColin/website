@@ -28,8 +28,6 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = os.environ.get("PRODUCTION") != "True"
 
 ALLOWED_HOSTS = [
-    '0.0.0.0',
-    '127.0.0.1',
     'valentin-colin.fr',
 ]
 
