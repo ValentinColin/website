@@ -41,6 +41,14 @@ local: ## Run server in local without docker
 	pip install -r requirements.txt
 	./entrypoint.sh
 
+
+update:
+	pipenv update
+	pipenv lock -r > requirements.txt
+
+build: update
+	docker-compose -f $(DOCKER_COMPOSE) build
+
 # Special target help
 help: ## Show this help
 	@echo 'usage: make [target] ...'
