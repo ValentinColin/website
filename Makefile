@@ -39,7 +39,7 @@ down: ## Run down all servers (production and dev)
 
 build: ### Build from the ground up
 	pipenv update
-	./manage.py collectstatic --noinput
+	SECRET_KEY=doesntmatter ./manage.py collectstatic --noinput
 	docker-compose --file $(DOCKER_COMPOSE) build
 
 
