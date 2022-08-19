@@ -37,6 +37,12 @@ down: ## Run down all servers (production and dev)
 	docker-compose --file $(DOCKER_COMPOSE_MARC) down
 	docker-compose --file $(DOCKER_COMPOSE_MARC_DEV) down
 
+build: ### Build from the ground up
+	pipenv update
+	./manage.py collectstatic --noinput
+	docker-compose --file $(DOCKER_COMPOSE) build
+
+
 local: ## Run server in local without docker
 	pip install -r requirements.txt
 	./entrypoint.sh
