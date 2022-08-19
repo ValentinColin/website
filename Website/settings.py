@@ -29,6 +29,7 @@ DEBUG = os.environ.get("PRODUCTION") != "True"
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'localhost',
     'valentin-colin.fr',
 ]
 
