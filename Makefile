@@ -13,6 +13,11 @@ DOCKER_COMPOSE_DEV	:= docker-compose-dev.yml
 DOCKER_COMPOSE_MARC	:= docker-compose-marc.yml
 DOCKER_COMPOSE_MARC_DEV	:= docker-compose-marc-dev.yml
 
+### Django
+SECRET_KEY := whatever
+HOST       := localhost
+PORT       := 9080
+
 ###############
 ### TARGETS ###
 ###############
@@ -38,22 +43,19 @@ down: ## Run down all servers (production and dev)
 	docker-compose --file $(DOCKER_COMPOSE_MARC_DEV) down
 
 build: ### Build from the ground up
-	pipenv update
-	SECRET_KEY=doesntmatter ./manage.py collectstatic --noinput
 	docker-compose --file $(DOCKER_COMPOSE) build
-
-
-local: ## Run server in local without docker
-	pip install -r requirements.txt
-	./entrypoint.sh
-
 
 update:
 	pipenv update
 	pipenv lock -r > requirements.txt
+	SECRET_KEY=$(SECRET_KEY) ./manage.py collectstatic --noinput
 
-build: update
-	docker-compose -f $(DOCKER_COMPOSE) build
+dev: ## Run dev server locally without docker
+	PRODUCTION=false HOST=$(HOST) PORT=$(PORT) SECRET_KEY=$(SECRET_KEY) ./entrypoint.sh
+
+prod: ## Run prod server locally without docker
+	PRODUCTION=true HOST=$(HOST) PORT=$(PORT) SECRET_KEY=$(SECRET_KEY) ./entrypoint.sh
+
 
 # Special target help
 help: ## Show this help
