@@ -5,11 +5,11 @@
 
 ## Install
 
-### From [source](https://github.com/ValentinColin/Website) (requires [git](https://git-scm.com/), [python](https://www.python.org/), [pip](https://pip.pypa.io/en/stable/installing/))
+### From [source](https://github.com/ValentinColin/website) (requires [git](https://git-scm.com/), [python](https://www.python.org/), [pip](https://pip.pypa.io/en/stable/installing/))
 
 ```sh
-git clone https://github.com/ValentinColin/Website
-cd Website
+git clone https://github.com/ValentinColin/website
+cd website
 pip install -r requirements.txt
 ./entrypoint.sh
 ```
