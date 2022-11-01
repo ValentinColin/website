@@ -10,14 +10,15 @@ LABEL link="https://valentin-colin.fr"
 # LABEL build.timestamp=timestamp                                        # Récup un <build at ...>
 # LABEL build.commit=commit                                              # Récup un <run at ...>
 
-COPY . /app
-WORKDIR /app
-
 # No .pyo and easier debugging
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN apk add curl
+
+COPY . /app
+WORKDIR /app
+
 RUN pip install -r requirements.txt
 
 ENV PORT 80
