@@ -6,7 +6,7 @@ services:
     container_name: valentincolin_website
     restart: unless-stopped
     environment:
-      PRODUCTION: "True"
+      PRODUCTION: "False"
     build:
       context: ./
       dockerfile: Dockerfile
